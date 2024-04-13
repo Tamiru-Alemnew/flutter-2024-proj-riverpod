@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:family_cash_manager/domain/model/user.dart';
-// import 'package:family_cash_manager/application/providers/user_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
