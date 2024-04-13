@@ -10,6 +10,7 @@ final userProvider = StateNotifierProvider<UserNotifier, UserState>((ref) {
 
 abstract class UserState {}
 
+
 class UserInitial extends UserState {}
 
 class UserLoading extends UserState {}
