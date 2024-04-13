@@ -4,6 +4,7 @@ class Budget {
   DateTime startDate;
   DateTime endDate;
 
+
   Budget({
     required this.name,
     required this.amount,
