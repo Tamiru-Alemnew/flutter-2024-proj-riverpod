@@ -5,6 +5,8 @@ import 'dart:convert';
 final categoryProvider = StateNotifierProvider<CategoryNotifier, CategoryState>(
     (ref) => CategoryNotifier());
 
+    
+
 class CategoryNotifier extends StateNotifier<CategoryState> {
   final String baseUrl = 'http://localhost:3000/category';
 
