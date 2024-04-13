@@ -8,10 +8,12 @@ final categoryProvider = StateNotifierProvider<CategoryNotifier, CategoryState>(
 class CategoryNotifier extends StateNotifier<CategoryState> {
   final String baseUrl = 'http://localhost:3000/category';
 
+
+
   CategoryNotifier() : super(CategoryInitial()) {
     getCategories();
   }
-  
+
 
   Future<void> getCategories() async {
     state = CategoryLoading();
