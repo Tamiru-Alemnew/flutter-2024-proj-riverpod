@@ -92,9 +92,11 @@ class FamilyMembersNotifier extends StateNotifier<FamilyMembersState> {
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'id': id,
-          
+
           'role': role,
         }),
+
+        
       );
       getAllFamilyMembers();
     } catch (e) {
