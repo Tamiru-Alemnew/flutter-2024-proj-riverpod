@@ -18,7 +18,7 @@ class EditExpensePage extends ConsumerWidget {
   }
 }
 
-// ignore: must_be_immutable
+
 class ExpensePage extends ConsumerWidget {
   ExpensePage({Key? key}) : super(key: key);
 
