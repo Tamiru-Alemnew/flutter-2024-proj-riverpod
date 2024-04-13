@@ -4,6 +4,8 @@ class Expense {
   final double amount;
   final DateTime date;
 
+  
+
   Expense({
     required this.userId,
     required this.category,
