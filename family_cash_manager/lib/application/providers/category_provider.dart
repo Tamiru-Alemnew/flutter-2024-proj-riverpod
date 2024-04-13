@@ -11,6 +11,7 @@ class CategoryNotifier extends StateNotifier<CategoryState> {
   CategoryNotifier() : super(CategoryInitial()) {
     getCategories();
   }
+  
 
   Future<void> getCategories() async {
     state = CategoryLoading();
