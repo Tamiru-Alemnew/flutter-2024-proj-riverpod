@@ -7,7 +7,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,44 +23,56 @@ class MyApp extends StatelessWidget {
         ),
 
         body: Container(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                alignment: Alignment.center,
-                height: double.tryParse("110"),
-                width: double.tryParse("140"),
-                color: const Color.fromARGB(255, 124, 122, 115),
-                child: Text("List of Expenses"),
-              ),
-              SizedBox(
-                height: double.tryParse("60"),
-              ),
-              Container(
-                alignment: Alignment.center,
-                height: double.tryParse("110"),
-                width: double.tryParse("140"),
-                color: Colors.green,
-                child: Text("Edit category"),
-                padding: EdgeInsets.all(12),
-              ),
-              SizedBox(
-                height: double.tryParse("60"),
-              ),
-              Container(
-                alignment: Alignment.center,
-                height: double.tryParse("110"),
-                width: double.tryParse("140"),
-                color: const Color.fromARGB(255, 85, 80, 80),
-                child: Text("Manage children"),
-                padding: EdgeInsets.all(12),
-              ),
-            ],
-          ),
-        ) ,
-      ),
+            color: Colors.white,
+            padding: EdgeInsets.all(20.0),
+            child: Table(
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              border: TableBorder.all(color: const Color.fromARGB(255, 63, 61, 61)),
+              children: [
+
+                TableRow(children: [
+                  Text('Cell 1'),
+                  Text('Cell 2'),
+                  Text('Cell 3'),
+                ]),
+                TableRow(children: [
+                  Text('Cell 4'),
+                  Text('Cell 5'),
+                  Text('Cell 6'),
+                ]),
+                 TableRow(children: [
+                  Text('Cell 4'),
+                  Text('Cell 5'),
+                  Text('Cell 6'),
+                ]),
+                 TableRow(children: [
+                  Text('Cell 4'),
+                  Text('Cell 5'),
+                  Text('Cell 6'),
+                ]),
+                 TableRow(children: [
+                  Text('Cell 4'),
+                  Text('Cell 5'),
+                  Text('Cell 6'),
+                ]),
+                 TableRow(children: [
+                  Text('Cell 4'),
+                  Text('Cell 5'),
+                  Text('Cell 6'),
+                ]),
+                 TableRow(children: [
+                  Text('Cell 4'),
+                  Text('Cell 5'),
+                  Text('Cell 6'),
+                ]),
+                 TableRow(children: [
+                  Text('Cell 4'),
+                  Text('Cell 5'),
+                  Text('Cell 6'),
+                ]),
+              ],
+            ),
+          )),
     );
   }
 }
