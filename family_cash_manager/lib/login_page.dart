@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:login_page/my_button.dart';
-import 'package:login_page/util/input.dart';
-import 'package:login_page/util/social_media.dart';
-import 'package:login_page/util/text.dart';
+import 'package:family_cash_manager/my_button.dart';
+import 'package:family_cash_manager/util/input.dart';
+// import 'package:family_cash_manager/util/social_media.dart';
+import 'package:family_cash_manager/util/text.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -37,7 +37,6 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: 26,
                   ),
-                  SocialMedia(),
                   SizedBox(
                     height: 36,
                   ),
