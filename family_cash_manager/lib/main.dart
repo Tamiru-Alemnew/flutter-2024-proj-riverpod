@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:family_cash_manager/Pages/expenses.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +10,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const ExpensePage(),
+      title: 'Family Cash manager',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 78, 75, 82),
+          title: const Text(
+            "Family Cash manager",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+        body: HomePage(),
+      ),
     );
   }
 }
-
-
-
 
 
