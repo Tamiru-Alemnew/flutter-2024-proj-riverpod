@@ -13,10 +13,59 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Family Cash Manager',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        scaffoldBackgroundColor: const Color.fromARGB(255, 245, 245, 245),
+        scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
-      home: const ExpensePage(),
+      
+      home: Scaffold(
+      drawer: Drawer(
+
+  child: ListView(
+    padding: EdgeInsets.zero,
+    children: [
+      const DrawerHeader(
+        decoration: BoxDecoration(
+          color: Colors.black54,
+          image: DecorationImage(
+            image: AssetImage('assets/images/logo.png'),
+            fit: BoxFit.fitHeight,
+          ),
+        ),
+        child: Text('' , style: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.bold
+        ),),
+      ),
+       ListTile(
+              title: const Text('Home page'),
+              onTap: () {
+               
+              },
+            ),
+      ListTile(
+        title: const Text('Add Expense'),
+        onTap: () {
+         
+        },
+      ),
+      ListTile(
+        title: const Text('Edit Category'),
+        onTap: () {
+          
+        },
+      ),
+     ListTile(
+              title: const Text('Manage Children'),
+              onTap: () {},
+            ),
+    ],
+  ),
+),
+        appBar: AppBar(
+          backgroundColor: Colors.black45,
+          title: const Text('Family Cash Manager'),
+        ),
+        body: const ExpensePage(),
+      ),
     );
   }
 }

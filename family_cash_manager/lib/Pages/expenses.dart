@@ -17,45 +17,6 @@ class _ExpensePageState extends State<ExpensePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-
-  child: ListView(
-    padding: EdgeInsets.zero,
-    children: [
-      const DrawerHeader(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/logo.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Text('Family Cash Manager'),
-      ),
-       ListTile(
-              title: const Text('Home page'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-      ListTile(
-        title: const Text('Add Expense'),
-        onTap: () {
-         
-        },
-      ),
-      ListTile(
-        title: const Text('Edit Category'),
-        onTap: () {
-          // Update the state of the app.
-          // ...
-        },
-      ),
-     
-    ],
-  ),
-)
-      ,
       appBar: AppBar(
         title: const Text('Add Expense'),
       ),
