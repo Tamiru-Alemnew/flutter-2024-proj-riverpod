@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ExpensePage extends StatefulWidget {
-  const ExpensePage({Key? key});
+class EditExpense extends StatefulWidget {
+  const EditExpense({Key? key});
 
   @override
-  _ExpensePageState createState() => _ExpensePageState();
+  _EditExpenseState createState() => _EditExpenseState();
 }
 
-class _ExpensePageState extends State<ExpensePage> {
+class _EditExpenseState extends State<EditExpense> {
   List<String> categories = ['Food', 'Transport'];
   TextEditingController _categoryController = TextEditingController();
 
@@ -69,7 +69,7 @@ class _ExpensePageState extends State<ExpensePage> {
               children: [
                 ElevatedButton(
                   style: ButtonStyle(
-                      shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
                       backgroundColor: MaterialStateProperty.all(
@@ -92,7 +92,7 @@ class _ExpensePageState extends State<ExpensePage> {
                 const SizedBox(width: 10),
                 ElevatedButton(
                   style: ButtonStyle(
-                      shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
                       backgroundColor: MaterialStateProperty.all(
