@@ -1,4 +1,4 @@
-import 'package:family_cash_manager/Pages/home_page.dart';
+import 'package:family_cash_manager/screens/presentations/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
@@ -7,12 +7,7 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const HomePage(),
-        ),
-      ),
+      onTap: () => Navigator.pushNamed(context, '/home'),
       child: Container(
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 36, 120, 109),

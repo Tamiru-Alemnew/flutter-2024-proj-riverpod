@@ -1,4 +1,4 @@
-import 'package:family_cash_manager/widgets/common_sidebar.dart';
+import 'package:family_cash_manager/widgets/presentation/common_sidebar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -10,7 +10,6 @@ class EditCatagoryPage extends StatelessWidget {
     return Scaffold(
       drawer: const CommonSideBar(),
       appBar: AppBar(
-        backgroundColor: Colors.black45,
         title: const Text('Family Cash Manager'),
       ),
       body: const EditExpense(),
@@ -39,7 +38,8 @@ class _EditExpenseState extends State<EditExpense> {
           style: TextStyle(fontSize: 18),
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+        child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,6 +120,7 @@ class _EditExpenseState extends State<EditExpense> {
           ],
         ),
       ),
+      )
     );
   }
 

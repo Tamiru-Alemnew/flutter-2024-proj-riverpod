@@ -1,8 +1,8 @@
-import 'package:family_cash_manager/Pages/budgeting_goal.dart';
-import 'package:family_cash_manager/Pages/children.dart';
-import 'package:family_cash_manager/Pages/edit_category.dart';
-import 'package:family_cash_manager/Pages/expenses.dart';
-import 'package:family_cash_manager/Pages/home_page.dart';
+import 'package:family_cash_manager/screens/presentations/budgeting_goal.dart';
+import 'package:family_cash_manager/screens/presentations/children.dart';
+import 'package:family_cash_manager/screens/presentations/edit_category.dart';
+import 'package:family_cash_manager/screens/presentations/expenses.dart';
+import 'package:family_cash_manager/screens/presentations/home_page.dart';
 import 'package:flutter/material.dart';
 
 class CommonSideBar extends StatelessWidget {
@@ -38,12 +38,7 @@ class CommonSideBar extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const HomePage(),
-                ),
-              );
+              Navigator.pushNamed(context,'/home');
             },
           ),
           ListTile(
@@ -57,12 +52,7 @@ class CommonSideBar extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const AddExpense(),
-                ),
-              );
+              Navigator.pushNamed(context,'/addExpense');
             },
           ),
           ListTile(
@@ -76,12 +66,7 @@ class CommonSideBar extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const EditCatagoryPage(),
-                ),
-              );
+              Navigator.pushNamed(context,'/editCategories');
             },
           ),
           ListTile(
@@ -95,12 +80,7 @@ class CommonSideBar extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const MangeChildren(),
-                ),
-              );
+              Navigator.pushNamed(context,'/manageChildren');
             },
           ),
           ListTile(
@@ -114,11 +94,7 @@ class CommonSideBar extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                    builder: (BuildContext context) => BudgetAndGoal()),
-              );
+              Navigator.pushNamed(context,'/budgetingGoal');
             },
           ),
           ListTile(
@@ -132,7 +108,7 @@ class CommonSideBar extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context,'/');
             },
           ),
         ],

@@ -1,4 +1,4 @@
-import 'package:family_cash_manager/widgets/common_sidebar.dart';
+import 'package:family_cash_manager/widgets/presentation/common_sidebar.dart';
 import 'package:flutter/material.dart';
 
 class Child {
@@ -16,7 +16,6 @@ class MangeChildren extends StatelessWidget {
     return Scaffold(
       drawer: const CommonSideBar(),
       appBar: AppBar(
-        backgroundColor: Colors.black45,
         title: const Text('Family Cash Manager'),
       ),
       body:  ChildrenPage(),
