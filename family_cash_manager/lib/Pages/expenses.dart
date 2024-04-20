@@ -1,7 +1,26 @@
+import 'package:family_cash_manager/widgets/common_sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:family_cash_manager/widgets/drop_down.dart';
 import 'package:family_cash_manager/widgets/date_selector.dart';
 import 'package:flutter/widgets.dart';
+
+
+class AddExpense extends StatelessWidget {
+  const AddExpense({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: const CommonSideBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.black45,
+        title: const Text('Family Cash Manager'),
+      ),
+      body: const ExpensePage(),
+    );
+  }
+}
+
 
 class ExpensePage extends StatefulWidget {
   const ExpensePage({Key? key});

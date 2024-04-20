@@ -1,4 +1,22 @@
+import 'package:family_cash_manager/widgets/common_sidebar.dart';
 import 'package:flutter/material.dart';
+
+
+class EditCatagoryPage extends StatelessWidget {
+  const EditCatagoryPage({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: const CommonSideBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.black45,
+        title: const Text('Family Cash Manager'),
+      ),
+      body: const EditExpense(),
+    );
+  }
+}
 
 class EditExpense extends StatefulWidget {
   const EditExpense({Key? key});
@@ -15,12 +33,16 @@ class _EditExpenseState extends State<EditExpense> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 78, 75, 82),
+        leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+        
         title: const Text(
-          "Family Cash Manager",
+          "Edit Categories",
           style: TextStyle(
-            color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.w400,
           ),
