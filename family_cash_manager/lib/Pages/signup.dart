@@ -34,7 +34,7 @@ class SignUp extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // header
+                  
                   Container(
                     padding: const EdgeInsets.all(CustomPaddings.mediumPadding),
                     alignment: Alignment.center,
@@ -46,25 +46,21 @@ class SignUp extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                  // Sub header text
-
                   Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: CustomPaddings.mediumPadding),
                     alignment: Alignment.center,
                     child: Text(
-                      "Get chatting with friends and family today by signing up for our neo-chat app!",
+                      "Please fill the form below to create an account.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: CustomTypography.smallFontSize,
-                        color: subtitleColor,
+                        color: Colors.grey[600],
                       ),
                     ),
                   ),
 
                   Expanded(child: SignUpTextFeilds()),
-                  CreateAccountButton()
                 ],
               ),
             ),

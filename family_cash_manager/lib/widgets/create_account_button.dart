@@ -1,3 +1,4 @@
+import 'package:family_cash_manager/Pages/home_page.dart';
 import 'package:flutter/material.dart';
 import '../styling/colors.dart';
 import '../styling/heights_and_widths.dart';
@@ -12,13 +13,18 @@ class CreateAccountButton extends StatelessWidget {
     return Container(
         margin: const EdgeInsets.only(bottom: CustomMargins.mediumMargin),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const HomePage(),
+              )
+            );
+           
+          },
           style: ElevatedButton.styleFrom(
             minimumSize: const Size(ButtonWidth.elevatedButtonMinWidth,
                 ButtonHeight.elevatedButtonHeight),
-            // fixedSize: MaterialStateProperty.all(
-
-            //     Size.fromHeight(ButtonHeight.elevatedButtonHeight)),
             backgroundColor: primaryColor,
           ),
           child: Text(

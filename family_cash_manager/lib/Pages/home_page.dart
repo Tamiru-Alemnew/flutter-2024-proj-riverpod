@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:family_cash_manager/Pages/children.dart';
 import 'package:family_cash_manager/widgets/common_sidebar.dart';
-import 'package:flutter/material.dart';
 import 'package:family_cash_manager/Pages/expenses.dart';
 import 'package:family_cash_manager/Pages/edit_category.dart';
 
@@ -26,90 +26,79 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, 
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Landing Page'), 
+        title: Text('Home Page'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AddExpense()),
-                );
-              },
-              child: Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 110,
-                  width: 140,
-                  padding: const EdgeInsets.all(12),
-                  child: const Text(
-                    "Add Expenses",
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
+            _buildCard(
+              context,
+              "Add Expenses",
+              AddExpense(),
+              Icons.attach_money,
             ),
-            SizedBox(height: 60),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => EditCatagoryPage()),
-                );
-              },
-              child: Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 110,
-                  width: 140,
-                  padding: const EdgeInsets.all(12),
-                  child: const Text(
-                    "Edit category",
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
+            SizedBox(height: 40),
+            _buildCard(
+              context,
+              "Edit Category",
+              EditCatagoryPage(),
+              Icons.category,
             ),
-            SizedBox(height: 60),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MangeChildren()),
-                );
-              },
-              child: Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 110,
-                  width: 140,
-                  padding: const EdgeInsets.all(12),
-                  child: const Text(
-                    "Manage children",
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
+            SizedBox(height: 40),
+            _buildCard(
+              context,
+              "Manage Children",
+              MangeChildren(),
+              Icons.child_care,
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCard(
+      BuildContext context, String title, Widget page, IconData icon) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => page),
+        );
+      },
+      child: Card(
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Container(
+          alignment: Alignment.center,
+          height: 140,
+          width: 160,
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(
+                icon,
+                size: 50,
+                color: Theme.of(context).primaryColor,
+              ),
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
