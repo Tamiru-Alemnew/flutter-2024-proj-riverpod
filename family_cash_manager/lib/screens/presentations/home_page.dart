@@ -1,9 +1,9 @@
-import 'package:family_cash_manager/Pages/budgeting_goal.dart';
+import 'package:family_cash_manager/screens/presentations/budgeting_goal.dart';
 import 'package:flutter/material.dart';
-import 'package:family_cash_manager/Pages/children.dart';
-import 'package:family_cash_manager/widgets/common_sidebar.dart';
-import 'package:family_cash_manager/Pages/expenses.dart';
-import 'package:family_cash_manager/Pages/edit_category.dart';
+import 'package:family_cash_manager/screens/presentations/children.dart';
+import 'package:family_cash_manager/widgets/presentation/common_sidebar.dart';
+import 'package:family_cash_manager/screens/presentations/expenses.dart';
+import 'package:family_cash_manager/screens/presentations/edit_category.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key});
@@ -39,6 +39,7 @@ class LandingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: 40),
            Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

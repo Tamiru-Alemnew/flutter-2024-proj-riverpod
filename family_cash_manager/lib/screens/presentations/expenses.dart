@@ -1,7 +1,7 @@
-import 'package:family_cash_manager/widgets/common_sidebar.dart';
+import 'package:family_cash_manager/widgets/presentation/common_sidebar.dart';
 import 'package:flutter/material.dart';
-import 'package:family_cash_manager/widgets/drop_down.dart';
-import 'package:family_cash_manager/widgets/date_selector.dart';
+import 'package:family_cash_manager/widgets/presentation/drop_down.dart';
+import 'package:family_cash_manager/widgets/presentation/date_selector.dart';
 import 'package:flutter/widgets.dart';
 
 

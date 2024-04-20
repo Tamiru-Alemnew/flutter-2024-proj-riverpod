@@ -1,10 +1,10 @@
-import 'package:family_cash_manager/widgets/create_account_button.dart';
+import 'package:family_cash_manager/widgets/presentation/create_account_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../styling/colors.dart';
-import '../styling/heights_and_widths.dart';
-import '../styling/paddings_and_margins.dart';
-import '../styling/typography.dart';
+import '../../styling/colors.dart';
+import '../../styling/heights_and_widths.dart';
+import '../../styling/paddings_and_margins.dart';
+import '../../styling/typography.dart';
 
 class SignUpTextFeilds extends StatelessWidget {
   const SignUpTextFeilds({super.key});

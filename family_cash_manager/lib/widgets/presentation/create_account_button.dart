@@ -1,10 +1,9 @@
-import 'package:family_cash_manager/Pages/home_page.dart';
+import 'package:family_cash_manager/screens/presentations/home_page.dart';
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
-  const MyButton({super.key});
+class CreateAccountButton extends StatelessWidget {
+  const CreateAccountButton({super.key});
 
-  @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Navigator.push(
@@ -22,7 +21,7 @@ class MyButton extends StatelessWidget {
           padding: EdgeInsets.all(16),
           child: Center(
             child: Text(
-              'Login',
+              'Create Account',
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Caros',

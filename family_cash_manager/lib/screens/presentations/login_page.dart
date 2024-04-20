@@ -1,6 +1,6 @@
-import 'package:family_cash_manager/Pages/signup.dart';
+import 'package:family_cash_manager/screens/presentations/signup.dart';
 import 'package:flutter/material.dart';
-import 'package:family_cash_manager/widgets/my_button.dart';
+import 'package:family_cash_manager/widgets/presentation/my_button.dart';
 import 'package:family_cash_manager/util/input.dart';
 // import 'package:family_cash_manager/util/social_media.dart';
 import 'package:family_cash_manager/util/text.dart';
@@ -66,29 +66,22 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: 80,
                   ),
-                   MyButton(),
+                  MyButton(),
                   SizedBox(
                     height: 20,
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) => const SignUp(),
-                        ),
-                      );
+                      Navigator.pushNamed(context, '/signUp');
                     },
-                  child: TextWidget(
-                                      text: "Don't have Account? Create Account",
-                                      family: 'Circular Std',
-                                      
-                                    ),
+                    child: TextWidget(
+                      text: "Don't have Account? Create Account",
+                      family: 'Circular Std',
+                    ),
                   ),
                 ],
               ),
             ),
-               
           ],
         ),
       ),
