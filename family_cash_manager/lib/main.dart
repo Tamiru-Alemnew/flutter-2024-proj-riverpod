@@ -1,13 +1,5 @@
-import 'package:family_cash_manager/Pages/children.dart';
-import 'package:family_cash_manager/Pages/budgeting_goal.dart';
-import 'package:family_cash_manager/widgets/common_sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:family_cash_manager/Pages/login_page.dart';
-import 'package:family_cash_manager/Pages/expenses.dart';
-import 'package:family_cash_manager/Pages/home_page.dart';
-import 'package:family_cash_manager/Pages/edit_category.dart';
-import 'package:family_cash_manager/Pages/signup.dart';
-
 void main() {
   runApp(const MyApp());
 }

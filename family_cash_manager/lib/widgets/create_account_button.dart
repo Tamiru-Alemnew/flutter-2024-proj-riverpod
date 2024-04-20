@@ -1,9 +1,5 @@
 import 'package:family_cash_manager/Pages/home_page.dart';
 import 'package:flutter/material.dart';
-import '../styling/colors.dart';
-import '../styling/heights_and_widths.dart';
-import '../styling/paddings_and_margins.dart';
-import '../styling/typography.dart';
 
 class CreateAccountButton extends StatelessWidget {
   const CreateAccountButton({super.key});

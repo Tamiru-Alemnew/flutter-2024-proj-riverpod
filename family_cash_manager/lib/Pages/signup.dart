@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:family_cash_manager/styling/colors.dart';
 import 'package:family_cash_manager/styling/paddings_and_margins.dart';
 import 'package:family_cash_manager/styling/typography.dart';
-import 'package:family_cash_manager/widgets/create_account_button.dart';
 import 'package:family_cash_manager/widgets/signup_textfeilds.dart';
 
 class SignUp extends StatelessWidget {

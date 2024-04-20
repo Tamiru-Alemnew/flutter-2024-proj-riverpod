@@ -1,3 +1,4 @@
+import 'package:family_cash_manager/Pages/budgeting_goal.dart';
 import 'package:flutter/material.dart';
 import 'package:family_cash_manager/Pages/children.dart';
 import 'package:family_cash_manager/widgets/common_sidebar.dart';
@@ -12,7 +13,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       drawer: const CommonSideBar(),
       appBar: AppBar(
-        backgroundColor: Colors.black45,
         title: const Text('Family Cash Manager'),
       ),
       body: const LandingPage(),
@@ -26,38 +26,59 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text('Home Page'),
+     appBar: AppBar(
+        scrolledUnderElevation: 0.0,
+        title: Text(
+          'Home page',
+          style: TextStyle(fontSize: 18),
+        ),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+        child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _buildCard(
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+               _buildCard(
               context,
               "Add Expenses",
               AddExpense(),
               Icons.attach_money,
             ),
-            SizedBox(height: 40),
+            
             _buildCard(
               context,
               "Edit Category",
               EditCatagoryPage(),
               Icons.category,
             ),
-            SizedBox(height: 40),
-            _buildCard(
-              context,
-              "Manage Children",
-              MangeChildren(),
-              Icons.child_care,
-            ),
+            ],
+           ),
+           SizedBox(height: 40),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+                    _buildCard(
+                      context,
+                      "Manage Children",
+                      MangeChildren(),
+                      Icons.child_care,
+                    ),
+                    _buildCard(
+                      context,
+                      "Budgeting & Goal Setting",
+                      BudgetAndGoal(),
+                      Icons.monetization_on,
+                    ),
+            ],
+          )
           ],
         ),
       ),
+      )
     );
   }
 

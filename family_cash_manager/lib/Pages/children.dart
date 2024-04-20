@@ -16,7 +16,6 @@ class MangeChildren extends StatelessWidget {
     return Scaffold(
       drawer: const CommonSideBar(),
       appBar: AppBar(
-        backgroundColor: Colors.black45,
         title: const Text('Family Cash Manager'),
       ),
       body:  ChildrenPage(),
