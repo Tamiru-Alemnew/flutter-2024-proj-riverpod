@@ -33,19 +33,10 @@ class _EditExpenseState extends State<EditExpense> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-        
-        title: const Text(
-          "Edit Categories",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w400,
-          ),
+        scrolledUnderElevation: 0.0,
+        title: Text(
+          'Edit Category',
+          style: TextStyle(fontSize: 18),
         ),
       ),
       body: Padding(

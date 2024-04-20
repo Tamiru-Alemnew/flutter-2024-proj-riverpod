@@ -1,4 +1,20 @@
+import 'package:family_cash_manager/widgets/common_sidebar.dart';
 import 'package:flutter/material.dart';
+
+class BudgetAndGoal extends StatelessWidget {
+  const BudgetAndGoal({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: const CommonSideBar(),
+      appBar: AppBar(
+        title: const Text('Family Cash Manager'),
+      ),
+      body: BudgetPage(),
+    );
+  }
+}
 
 class BudgetPage extends StatefulWidget {
   @override
@@ -6,7 +22,6 @@ class BudgetPage extends StatefulWidget {
 }
 
 class _BudgetPageState extends State<BudgetPage> {
-
   double overallBudget = 5000.0;
   double childSpendingLimit = 1000.0;
   Map<String, double> specificGoals = {
@@ -20,7 +35,9 @@ class _BudgetPageState extends State<BudgetPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Budgeting & Goal Setting'),
+        scrolledUnderElevation :0.0,
+        title: Text('Budgeting & Goal Setting' , 
+        style: TextStyle(fontSize: 18),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -41,9 +58,7 @@ class _BudgetPageState extends State<BudgetPage> {
                 Spacer(),
                 IconButton(
                   icon: Icon(Icons.edit),
-                  onPressed: () {
-                    // Add functionality to edit overall budget goal
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
@@ -51,6 +66,7 @@ class _BudgetPageState extends State<BudgetPage> {
               value: overallBudget,
               min: 1000.0,
               max: 10000.0,
+              activeColor: const Color.fromARGB(255, 32, 31, 31),
               onChanged: (value) {
                 setState(() {
                   overallBudget = value;
@@ -72,9 +88,7 @@ class _BudgetPageState extends State<BudgetPage> {
                 Spacer(),
                 IconButton(
                   icon: Icon(Icons.edit),
-                  onPressed: () {
-                    // Add functionality to edit child spending limit
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
@@ -82,6 +96,7 @@ class _BudgetPageState extends State<BudgetPage> {
               value: childSpendingLimit,
               min: 100.0,
               max: 2000.0,
+              activeColor: Colors.black,
               onChanged: (value) {
                 setState(() {
                   childSpendingLimit = value;
@@ -105,9 +120,7 @@ class _BudgetPageState extends State<BudgetPage> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                // Add functionality to save budget goals and spending limits
-              },
+              onPressed: () {},
               child: Text('Save'),
             ),
           ],
@@ -120,9 +133,22 @@ class _BudgetPageState extends State<BudgetPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: TextStyle(fontSize: 16),
+        Row(
+          children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 16),
+            ),
+            Spacer(),
+            IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                setState(() {
+                  specificGoals.remove(title);
+                });
+              },
+            ),
+          ],
         ),
         SizedBox(height: 5),
         Row(
@@ -134,9 +160,7 @@ class _BudgetPageState extends State<BudgetPage> {
             Spacer(),
             IconButton(
               icon: Icon(Icons.edit),
-              onPressed: () {
-
-              },
+              onPressed: () {},
             ),
           ],
         ),
@@ -144,6 +168,7 @@ class _BudgetPageState extends State<BudgetPage> {
           value: currentValue ?? 0.0,
           min: 0.0,
           max: 2000.0,
+          activeColor: Colors.green,
           onChanged: (value) {
             setState(() {
               specificGoals[title] = value;

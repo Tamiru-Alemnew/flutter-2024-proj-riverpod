@@ -13,7 +13,6 @@ class AddExpense extends StatelessWidget {
     return Scaffold(
       drawer: const CommonSideBar(),
       appBar: AppBar(
-        backgroundColor: Colors.black45,
         title: const Text('Family Cash Manager'),
       ),
       body: const ExpensePage(),
@@ -37,13 +36,11 @@ class _ExpensePageState extends State<ExpensePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        scrolledUnderElevation: 0.0,
+        title: Text(
+          'Add Expenses',
+          style: TextStyle(fontSize: 18),
         ),
-        title: const Text('Add Expense'),
       ),
       
       body: Padding(
