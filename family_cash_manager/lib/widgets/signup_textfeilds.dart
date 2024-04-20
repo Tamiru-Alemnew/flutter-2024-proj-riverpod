@@ -1,3 +1,4 @@
+import 'package:family_cash_manager/widgets/create_account_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../styling/colors.dart';
@@ -19,11 +20,14 @@ class SignUpTextFeilds extends StatelessWidget {
       child:  Expanded(
         child: ListView(
           children: const [
-            // Email textfield
              CustomTextFeild(label: 'Your name'),
              CustomTextFeild(label: 'Your email'),
              CustomTextFeild(label: 'Password'),
              CustomTextFeild(label: 'Confirm password'),
+             SizedBox(
+              height: 20,
+             ),
+             CreateAccountButton(),
           ],
         ),
       ),

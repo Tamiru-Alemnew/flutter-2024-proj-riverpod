@@ -1,3 +1,4 @@
+import 'package:family_cash_manager/Pages/budgeting_goal.dart';
 import 'package:family_cash_manager/Pages/children.dart';
 import 'package:family_cash_manager/Pages/edit_category.dart';
 import 'package:family_cash_manager/Pages/expenses.dart';
@@ -30,7 +31,9 @@ class CommonSideBar extends StatelessWidget {
             title: Row(
               children: const [
                 Icon(Icons.home),
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 Text('Home'),
               ],
             ),
@@ -47,10 +50,11 @@ class CommonSideBar extends StatelessWidget {
             title: Row(
               children: const [
                 Icon(Icons.add),
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 Text('Add Expense'),
               ],
-            
             ),
             onTap: () {
               Navigator.push(
@@ -65,7 +69,9 @@ class CommonSideBar extends StatelessWidget {
             title: Row(
               children: const [
                 Icon(Icons.edit),
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 Text('Edit Categories'),
               ],
             ),
@@ -82,7 +88,9 @@ class CommonSideBar extends StatelessWidget {
             title: Row(
               children: const [
                 Icon(Icons.people),
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 Text('Manage Children'),
               ],
             ),
@@ -93,6 +101,38 @@ class CommonSideBar extends StatelessWidget {
                   builder: (BuildContext context) => const MangeChildren(),
                 ),
               );
+            },
+          ),
+          ListTile(
+            title: Row(
+              children: const [
+                Icon(Icons.monetization_on),
+                SizedBox(
+                  width: 10,
+                ),
+                Text('Budgeting Goal'),
+              ],
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (BuildContext context) => BudgetAndGoal()),
+              );
+            },
+          ),
+          ListTile(
+            title: Row(
+              children: const [
+                Icon(Icons.logout),
+                SizedBox(
+                  width: 10,
+                ),
+                Text('Logout'),
+              ],
+            ),
+            onTap: () {
+              Navigator.pop(context);
             },
           ),
         ],

@@ -49,12 +49,11 @@ class _ChildrenPageState extends State<ChildrenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          }),
-        title: Text('Children'),
+        scrolledUnderElevation: 0.0,
+        title: Text(
+          'Manage Children',
+          style: TextStyle(fontSize: 18),
+        ),
       ),
       body: ListView.builder(
         itemCount: childrenList.length,
