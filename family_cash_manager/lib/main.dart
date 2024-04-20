@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
-      home:  ChildrenPage(),
+      home:  MangeChildren(),
     );
   }
 }

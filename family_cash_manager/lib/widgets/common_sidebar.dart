@@ -1,3 +1,4 @@
+import 'package:family_cash_manager/Pages/children.dart';
 import 'package:family_cash_manager/Pages/edit_category.dart';
 import 'package:family_cash_manager/Pages/expenses.dart';
 import 'package:family_cash_manager/Pages/home_page.dart';
@@ -26,18 +27,31 @@ class CommonSideBar extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: const Text('Home page'),
+            title: Row(
+              children: const [
+                Icon(Icons.home),
+                SizedBox(width: 10,),
+                Text('Home'),
+              ],
+            ),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const LandingPage(),
+                  builder: (BuildContext context) => const HomePage(),
                 ),
               );
             },
           ),
           ListTile(
-            title: const Text('Add Expense'),
+            title: Row(
+              children: const [
+                Icon(Icons.add),
+                SizedBox(width: 10,),
+                Text('Add Expense'),
+              ],
+            
+            ),
             onTap: () {
               Navigator.push(
                 context,
@@ -48,7 +62,13 @@ class CommonSideBar extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Edit Category'),
+            title: Row(
+              children: const [
+                Icon(Icons.edit),
+                SizedBox(width: 10,),
+                Text('Edit Categories'),
+              ],
+            ),
             onTap: () {
               Navigator.push(
                 context,
@@ -59,9 +79,20 @@ class CommonSideBar extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Manage Children'),
+            title: Row(
+              children: const [
+                Icon(Icons.people),
+                SizedBox(width: 10,),
+                Text('Manage Children'),
+              ],
+            ),
             onTap: () {
-
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const MangeChildren(),
+                ),
+              );
             },
           ),
         ],

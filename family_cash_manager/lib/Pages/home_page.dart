@@ -1,8 +1,8 @@
+import 'package:family_cash_manager/Pages/children.dart';
 import 'package:family_cash_manager/widgets/common_sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:family_cash_manager/Pages/expenses.dart';
 import 'package:family_cash_manager/Pages/edit_category.dart';
-
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key});
@@ -26,9 +26,9 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Set background color to white
+      backgroundColor: Colors.white, 
       appBar: AppBar(
-        title: Text('Landing Page'), // Change the title if needed
+        title: Text('Landing Page'), 
       ),
       body: Center(
         child: Column(
@@ -39,7 +39,7 @@ class LandingPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ExpensePage()),
+                  MaterialPageRoute(builder: (context) => AddExpense()),
                 );
               },
               child: Card(
@@ -53,7 +53,7 @@ class LandingPage extends StatelessWidget {
                   width: 140,
                   padding: const EdgeInsets.all(12),
                   child: const Text(
-                    "List of Expenses",
+                    "Add Expenses",
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -64,7 +64,7 @@ class LandingPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => EditExpense()),
+                  MaterialPageRoute(builder: (context) => EditCatagoryPage()),
                 );
               },
               child: Card(
@@ -87,8 +87,10 @@ class LandingPage extends StatelessWidget {
             SizedBox(height: 60),
             InkWell(
               onTap: () {
-                print("Manage children");
-                // Implement navigation logic for managing children if needed
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MangeChildren()),
+                );
               },
               child: Card(
                 elevation: 5,
