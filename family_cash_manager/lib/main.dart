@@ -1,3 +1,4 @@
+import 'package:family_cash_manager/Pages/children.dart';
 import 'package:family_cash_manager/widgets/common_sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:family_cash_manager/Pages/expenses.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
-      home: const HomePage(),
+      home:  ChildrenPage(),
     );
   }
 }

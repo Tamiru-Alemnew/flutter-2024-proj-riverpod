@@ -39,12 +39,10 @@ class _EditExpenseState extends State<EditExpense> {
                 Navigator.pop(context);
               },
             ),
-        centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 78, 75, 82),
+        
         title: const Text(
-          "Family Cash Manager",
+          "Edit Categories",
           style: TextStyle(
-            color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.w400,
           ),
