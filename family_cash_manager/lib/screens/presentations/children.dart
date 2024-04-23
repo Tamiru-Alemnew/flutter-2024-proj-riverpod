@@ -8,6 +8,9 @@ class Child {
   Child(this.name, this.role);
 }
 
+/// This class represents the screen for managing children in the Family Cash Manager app.
+/// It extends StatelessWidget to provide a static user interface that doesn't change based on data.
+
 class MangeChildren extends StatelessWidget {
   const MangeChildren({Key? key});
 
@@ -18,19 +21,23 @@ class MangeChildren extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Family Cash Manager'),
       ),
-      body:  ChildrenPage(),
+      body: ChildrenPage(),
     );
   }
 }
 
+/// This class represents the page for managing children in the Family Cash Manager app.
+/// It extends StatefulWidget to provide a dynamic user interface that can change based on data and user interactions.
 class ChildrenPage extends StatefulWidget {
   @override
   _ChildrenPageState createState() => _ChildrenPageState();
 }
 
+/// This class represents the state of the ChildrenPage widget in the Family Cash Manager app.
+/// It manages the list of children and their information.
 class _ChildrenPageState extends State<ChildrenPage> {
-
   List<Child> childrenList = [
+    // List of Child objects with their names and roles
     Child('jon doe', 'Child'),
     Child('jane doe', 'Child'),
     Child('Abebe kebede', 'Child'),
@@ -72,6 +79,9 @@ class _ChildrenPageState extends State<ChildrenPage> {
     );
   }
 
+  /// Shows a confirmation dialog when the user wants to change a child's role.
+  /// The dialog prompts the user to confirm the role change for the specified child.
+  /// If the user confirms, the role is changed, and a snackbar is shown to indicate the success.
   void _showConfirmationDialog(int index) {
     showDialog(
       context: context,
@@ -79,10 +89,10 @@ class _ChildrenPageState extends State<ChildrenPage> {
         return AlertDialog(
           title: Text("Change Role"),
           content: Text(
-              "Do you want to change ${childrenList[index].name}'s role?"),
+              "Do you want to change ${childrenList[index].name}'s role?"), // Confirmation message with the child's name
           actions: [
             ElevatedButton(
-              child: Text("Cancel"),
+              child: Text("Cancel"), // Cancel button
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -90,9 +100,10 @@ class _ChildrenPageState extends State<ChildrenPage> {
             ElevatedButton(
               child: Text("Change"),
               onPressed: () {
-                _changeRole(index);
+                _changeRole(
+                    index); // Call _changeRole method to update the child's role
                 Navigator.of(context).pop();
-                _showSnackbar();
+                _showSnackbar(); // Show a snackbar to indicate the success of the role change
               },
             ),
           ],
