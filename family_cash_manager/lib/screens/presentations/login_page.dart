@@ -5,6 +5,13 @@ import 'package:family_cash_manager/util/input.dart';
 // import 'package:family_cash_manager/util/social_media.dart';
 import 'package:family_cash_manager/util/text.dart';
 
+/// The LoginPage class represents the login screen of the Family Cash Manager app.
+/// This class extends StatelessWidget and defines the UI layout using Scaffold. It includes a white background
+/// and a body that consists of various widgets for the login form. The form includes text fields for entering
+/// the user's email and password, along with a login button. There is also an option to navigate to the sign-up
+/// page for creating a new account. The UI elements are organized in a column layout and styled using appropriate
+/// padding, spacing, and font styles.
+
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
