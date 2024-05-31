@@ -17,6 +17,7 @@ Future<String> getUserRole(BuildContext context) async {
   }
 }
 
+
 @override
 Widget build(BuildContext context) {
   return FutureBuilder<String>(
@@ -92,6 +93,7 @@ class _EditExpenseState extends State<EditExpense> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text(
           'Edit Category',
@@ -204,6 +206,7 @@ class _EditExpenseState extends State<EditExpense> {
         ),
       ),
     );
+
   }
 
   @override
@@ -212,7 +215,6 @@ class _EditExpenseState extends State<EditExpense> {
     super.dispose();
   }
 }
-
 
 
 

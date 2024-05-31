@@ -7,6 +7,7 @@ import 'package:family_cash_manager/util/text.dart';
 
 
 class LoginPage extends StatefulWidget {
+
   const LoginPage({super.key});
 
   @override

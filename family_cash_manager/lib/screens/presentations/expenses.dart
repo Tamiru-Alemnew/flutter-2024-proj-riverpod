@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class EditExpensePage extends StatelessWidget {
   const EditExpensePage({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +51,7 @@ class _ExpensePageState extends State<ExpensePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return BlocConsumer<ExpenseBloc, ExpenseState>(
       listener: (context, state) {
         if (state is ExpenseError) {
@@ -77,6 +79,7 @@ class _ExpensePageState extends State<ExpensePage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+
               children: [
                 BlocBuilder<CategoryBloc, CategoryState>(
                   builder: (context, state) {

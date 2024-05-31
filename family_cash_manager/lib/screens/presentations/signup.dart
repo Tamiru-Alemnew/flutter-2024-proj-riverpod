@@ -64,8 +64,8 @@ class SignUp extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Expanded(child: SignUpTextFeilds()),
 
-                  Expanded(child: SignUpTextFields()),
                 ],
               ),
             ),
