@@ -17,6 +17,7 @@ Future<String> getUserRole(BuildContext context) async {
   }
 }
 
+
 @override
 Widget build(BuildContext context) {
   return FutureBuilder<String>(
@@ -64,6 +65,10 @@ Widget build(BuildContext context) {
 }
 }
 
+/// The EditExpense class represents the form for editing an expense category in the Family Cash Manager app.
+/// It extends StatefulWidget, indicating that the UI of this form can change dynamically based on user interactions
+/// and state updates. The class overrides the createState() method to create an instance of _EditExpenseState,
+/// which manages the state of the EditExpense form.
 class EditExpense extends StatefulWidget {
   const EditExpense({Key? key}) : super(key: key);
 
@@ -71,6 +76,11 @@ class EditExpense extends StatefulWidget {
   _EditExpenseState createState() => _EditExpenseState();
 }
 
+/// The _EditExpenseState class represents the state of the EditExpense form in the Family Cash Manager app.
+/// It manages the dynamic data and user interactions for editing expense categories. This class extends the
+/// State class and overrides the build() method to define the UI layout and functionality of the EditExpense form.
+/// It includes a list of categories, a text field for adding new categories, and buttons for adding categories and
+/// completing the editing process. The state is updated using the setState() method, reflecting changes made by the user.
 class _EditExpenseState extends State<EditExpense> {
   TextEditingController _categoryController = TextEditingController();
 
@@ -83,6 +93,7 @@ class _EditExpenseState extends State<EditExpense> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text(
           'Edit Category',
@@ -195,6 +206,7 @@ class _EditExpenseState extends State<EditExpense> {
         ),
       ),
     );
+
   }
 
   @override
@@ -203,7 +215,6 @@ class _EditExpenseState extends State<EditExpense> {
     super.dispose();
   }
 }
-
 
 
 
@@ -222,6 +233,12 @@ class CategoryItem extends StatefulWidget {
   @override
   _CategoryItemState createState() => _CategoryItemState();
 }
+
+/// The _CategoryItemState class represents the state of a CategoryItem widget in the Family Cash Manager app.
+/// It manages the dynamic data and user interactions for displaying and interacting with an expense category item.
+/// This class extends the State class and overrides the build() method to define the UI layout and functionality
+/// of the CategoryItem. It includes a card widget that displays the category name and provides options for editing
+/// and deleting the category. The state is updated using the setState() method, reflecting changes made by the user.
 
 class _CategoryItemState extends State<CategoryItem> {
   bool _isEditing = false;

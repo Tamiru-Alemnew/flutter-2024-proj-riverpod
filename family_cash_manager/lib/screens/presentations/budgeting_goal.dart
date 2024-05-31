@@ -1,6 +1,9 @@
 import 'package:family_cash_manager/widgets/presentation/common_sidebar.dart';
 import 'package:flutter/material.dart';
 
+// The BudgetAndGoal class represents the main screen of the Family Cash Manager app,
+// displaying the budget and goals. This class extends StatelessWidget and defines the
+
 class BudgetAndGoal extends StatelessWidget {
   const BudgetAndGoal({Key? key});
 
@@ -16,10 +19,22 @@ class BudgetAndGoal extends StatelessWidget {
   }
 }
 
+/// The BudgetPage class represents the page that displays the budget details and allows
+/// users to manage their finances. It extends StatefulWidget, indicating that the UI of
+/// this page can change dynamically based on user interactions and state updates. The
+/// class overrides the createState() method to create an instance of _BudgetPageState,
+/// which manages the state of the BudgetPage.
 class BudgetPage extends StatefulWidget {
   @override
   _BudgetPageState createState() => _BudgetPageState();
 }
+
+/// The _BudgetPageState class represents the state of the BudgetPage widget. It manages
+/// the dynamic data and user interactions for budgeting and goal setting. This class
+/// extends the State class and overrides the build() method to define the UI layout
+/// and functionality of the BudgetPage. It includes sliders, input fields, and buttons
+/// for managing the overall family budget, child spending limit, and specific goals.
+/// The state is updated using the setState() method, reflecting changes made by the user.
 
 class _BudgetPageState extends State<BudgetPage> {
   double overallBudget = 5000.0;

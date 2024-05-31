@@ -5,6 +5,10 @@ import 'package:family_cash_manager/widgets/presentation/common_sidebar.dart';
 import 'package:family_cash_manager/screens/presentations/expenses.dart';
 import 'package:family_cash_manager/screens/presentations/edit_category.dart';
 
+/// The HomePage class represents the main page of the Family Cash Manager app.
+/// This class extends StatelessWidget and defines the UI layout using Scaffold. It includes a drawer for navigation
+/// and an app bar with the app title. The body of the page is populated with the LandingPage widget,
+/// which serves as the landing screen and entry point for the app.
 class HomePage extends StatelessWidget {
   const HomePage({Key? key});
 
@@ -20,18 +24,27 @@ class HomePage extends StatelessWidget {
   }
 }
 
+/// The LandingPage class represents the landing screen and main content of the Family Cash Manager app.
+/// This class extends StatelessWidget and defines the UI layout using Scaffold. It includes an app bar with the page title
+/// and a body that consists of a SingleChildScrollView containing several cards representing different actions and features
+/// of the app. The cards include options for adding expenses, editing categories, managing children, and budgeting/goal setting.
+/// Each card is built using the _buildCard() method, which takes the context, card title, associated page/widget, and an icon.
+/// The content is arranged in a column with aligned rows for better visual organization.
+
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: AppBar(
-        scrolledUnderElevation: 0.0,
-        title: Text(
-          'Home page',
-          style: TextStyle(fontSize: 18),
+        appBar: AppBar(
+          scrolledUnderElevation: 0.0,
+          title: Text(
+            'Home page',
+            style: TextStyle(fontSize: 18),
+          ),
         ),
+
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -74,13 +87,12 @@ class LandingPage extends StatelessWidget {
                       BudgetAndGoal(),
                       Icons.monetization_on,
                     ),
-            ],
-          )
-          ],
-        ),
-      ),
-      )
-    );
+                  ],
+                )
+              ],
+            ),
+          ),
+        ));
   }
 
   Widget _buildCard(

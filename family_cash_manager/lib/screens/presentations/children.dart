@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ManageChildren extends StatelessWidget {
   const ManageChildren({Key? key}) : super(key: key);
 
+
   Future<String> getUserRole(BuildContext context) async {
     final userBloc = BlocProvider.of<UserBloc>(context);
     final userState = userBloc.state;
@@ -47,16 +48,22 @@ class ManageChildren extends StatelessWidget {
           );
         }
       },
+
     );
   }
 }
 
+/// This class represents the page for managing children in the Family Cash Manager app.
+/// It extends StatefulWidget to provide a dynamic user interface that can change based on data and user interactions.
 class ChildrenPage extends StatefulWidget {
   @override
   _ChildrenPageState createState() => _ChildrenPageState();
 }
 
+/// This class represents the state of the ChildrenPage widget in the Family Cash Manager app.
+/// It manages the list of children and their information.
 class _ChildrenPageState extends State<ChildrenPage> {
+
   List<User>? childrenList;
 
   @override
@@ -64,6 +71,7 @@ class _ChildrenPageState extends State<ChildrenPage> {
     super.initState();
     BlocProvider.of<FamilyMembersBloc>(context).add(GetAllFamilyMembers());
   }
+
 
   @override
   Widget build(BuildContext context) {
