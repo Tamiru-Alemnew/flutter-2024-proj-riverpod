@@ -27,6 +27,14 @@ class ExpensePage extends StatefulWidget {
   _ExpensePageState createState() => _ExpensePageState();
 }
 
+/// The _ExpensePageState class represents the state of the ExpensePage in the Family Cash Manager app.
+/// It manages the dynamic data and user interactions for adding and displaying expenses.
+/// This class extends the State class and overrides the build() method to define the UI layout and functionality
+/// of the ExpensePage. It includes form elements for entering the category, amount, and date of an expense,
+/// as well as a button to add the expense. The state is updated using the setState() method, reflecting changes
+/// made by the user. The list of expenses is displayed in a DataTable widget, showing the category, amount, and date
+/// of each expense.
+
 class _ExpensePageState extends State<ExpensePage> {
   List<Expense> expenses = [];
   DateTime? _selectedDate;
@@ -322,6 +330,15 @@ class _ExpensePageState extends State<ExpensePage> {
     );
   }
 }
+
+/// The Expense class represents an expense in the Family Cash Manager app.
+/// It encapsulates the properties of an expense, including the category, amount, and date.
+/// The category represents the type or category of the expense, such as "Food" or "Transport".
+/// The amount represents the monetary value of the expense.
+/// The date represents the date and time when the expense was recorded.
+///
+/// The properties of an expense are final and must be provided when creating a new instance of the Expense class.
+/// Once created, the expense object is immutable and its properties cannot be modified.
 
 class Expense {
   int id;
