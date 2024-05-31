@@ -46,14 +46,14 @@ class LandingPage extends StatelessWidget {
                _buildCard(
               context,
               "Add Expenses",
-              AddExpense(),
+              EditExpensePage(),
               Icons.attach_money,
             ),
             
             _buildCard(
               context,
               "Edit Category",
-              EditCatagoryPage(),
+              EditCategoryPage(),
               Icons.category,
             ),
             ],
@@ -65,7 +65,7 @@ class LandingPage extends StatelessWidget {
                     _buildCard(
                       context,
                       "Manage Children",
-                      MangeChildren(),
+                      ManageChildren(),
                       Icons.child_care,
                     ),
                     _buildCard(
