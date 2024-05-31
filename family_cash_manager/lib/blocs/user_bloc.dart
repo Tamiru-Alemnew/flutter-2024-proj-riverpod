@@ -1,58 +1,21 @@
-// user_event.dart
-import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+// user_provider.dart
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-abstract class UserEvent extends Equatable {
-  @override
-  List<Object> get props => [];
-}
+final userProvider = StateNotifierProvider<UserNotifier, UserState>((ref) {
+  return UserNotifier();
+});
 
-class UserLogin extends UserEvent {
+class User {
+  final String userId;
   final String email;
-  final String password;
-
-  UserLogin({required this.email, required this.password});
-
-  @override
-  List<Object> get props => [email, password];
-}
-
-class UserSignUp extends UserEvent {
-  final String name;
-  final String email;
-  final String password;
   final String role;
 
-  UserSignUp(
-      {required this.name,
-      required this.email,
-      required this.password,
-      required this.role});
+  User({required this.userId, required this.email, required this.role});
 
-  @override
-  List<Object> get props => [name, email, password, role];
 }
-
-class Logout extends UserEvent {}
-
-abstract class UserState extends Equatable {
-  @override
-  List<Object> get props => [];
-}
-
-// ignore: must_be_immutable
-class User extends Equatable {
-  final int userId;
-  final String email;
-  String role;
-
-  User({required this.email, required this.userId, required this.role});
-
-  @override
-  List<Object> get props => [email, role];
-}
+abstract class UserState {}
 
 class UserInitial extends UserState {}
 
@@ -62,91 +25,83 @@ class UserAuthenticated extends UserState {
   final User user;
 
   UserAuthenticated({required this.user});
-
-  @override
-  List<Object> get props => [user];
 }
 
 class UserError extends UserState {
   final String error;
 
   UserError({required this.error});
-
-  @override
-  List<Object> get props => [error];
 }
+class UserNotifier extends StateNotifier<UserState> {
+  UserNotifier() : super(UserInitial());
 
-// user_bloc
-class UserBloc extends Bloc<UserEvent, UserState> {
   final String baseUrl = 'http://localhost:3000/auth';
 
-  UserBloc() : super(UserInitial()) {
-    on<UserLogin>((event, emit) async {
-      emit(UserLoading());
+  void userLogin(String email, String password) async {
+    state = UserLoading();
+    try {
+      final response = await http.post(
+        Uri.parse('$baseUrl/login'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'email': email, 'password': password}),
+      );
+
+      final data = jsonDecode(response.body);
+      if (data.isNotEmpty) {
+        state = UserAuthenticated(
+            user: User(
+          userId: data['userId'],
+          email: data['email'],
+          role: data['role'],
+        ));
+      } else {
+        state = UserError(error: 'Login failed');
+      }
+    } catch (e) {
+      state = UserError(error: e.toString());
+    }
+  }
+
+  void userSignUp(
+      String name, String email, String password, String role) async {
+    state = UserLoading();
+    try {
+      final response = await http.post(
+        Uri.parse('$baseUrl/signup'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+          'role': role,
+        }),
+      );
       try {
         final response = await http.post(
           Uri.parse('$baseUrl/login'),
           headers: {'Content-Type': 'application/json'},
-          body: jsonEncode({'email': event.email, 'password': event.password}),
+          body: jsonEncode({'email': email, 'password': password}),
         );
 
         final data = jsonDecode(response.body);
         if (data.isNotEmpty) {
-          emit(UserAuthenticated(
+          state = UserAuthenticated(
               user: User(
-            userId: data['userId'],
+            userId: data["userId"],
             email: data['email'],
             role: data['role'],
-          )));
+          ));
         } else {
-          emit(UserError(error: 'Login failed'));
+          state = UserError(error: 'Login failed');
         }
       } catch (e) {
-        emit(UserError(error: e.toString()));
+        state = UserError(error: e.toString());
       }
-    });
+    } catch (e) {
+      state = UserError(error: e.toString());
+    }
+  }
 
-    on<UserSignUp>((event, emit) async {
-      emit(UserLoading());
-      try {
-        final response = await http.post(
-          Uri.parse('$baseUrl/signup'),
-          headers: {'Content-Type': 'application/json'},
-          body: jsonEncode({
-            'email': event.email,
-            'password': event.password,
-            'role': event.role,
-          }),
-        );
-        try {
-          final response = await http.post(
-            Uri.parse('$baseUrl/login'),
-            headers: {'Content-Type': 'application/json'},
-            body:
-                jsonEncode({'email': event.email, 'password': event.password}),
-          );
-
-          final data = jsonDecode(response.body);
-          if (data.isNotEmpty) {
-            emit(UserAuthenticated(
-                user: User(
-              userId: data["userId"],
-              email: data['email'],
-              role: data['role'],
-            )));
-          } else {
-            emit(UserError(error: 'Login failed'));
-          }
-        } catch (e) {
-          emit(UserError(error: e.toString()));
-        }
-      } catch (e) {
-        emit(UserError(error: e.toString()));
-      }
-    });
-
-    on<Logout>((event, emit) {
-      emit(UserInitial());
-    });
+  void logout() {
+    state = UserInitial();
   }
 }

@@ -1,17 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:family_cash_manager/blocs/user_bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class FamilyMember extends Equatable {
-  @override
-  List<Object> get props => [];
-}
-
-class GetAllFamilyMembers extends FamilyMember {}
-
-class FamilyMembersState extends Equatable {
   @override
   List<Object> get props => [];
 }
@@ -24,6 +17,11 @@ class UpdateRole extends FamilyMember {
 
   @override
   List<Object> get props => [id, role];
+}
+
+class FamilyMembersState extends Equatable {
+  @override
+  List<Object> get props => [];
 }
 
 class FamilyMembersInitial extends FamilyMembersState {}
@@ -48,54 +46,59 @@ class FamilyMembersError extends FamilyMembersState {
   List<Object> get props => [error];
 }
 
-// bloc
+// provider
 
-class FamilyMembersBloc extends Bloc<FamilyMember, FamilyMembersState> {
+final familyMembersProvider =
+    StateNotifierProvider<FamilyMembersNotifier, FamilyMembersState>(
+        (ref) => FamilyMembersNotifier());
+
+class FamilyMembersNotifier extends StateNotifier<FamilyMembersState> {
   final String baseUrl = 'http://localhost:3000/auth';
-  FamilyMembersBloc() : super(FamilyMembersInitial()) {
-    on<GetAllFamilyMembers>((event, emit) async {
-      emit(FamilyMembersLoading());
-      try {
-        final response = await http.get(
-          Uri.parse('$baseUrl/getallUsers'),
-          headers: {'Content-Type': 'application/json'},
-        );
+  FamilyMembersNotifier() : super(FamilyMembersInitial()) {
+    getAllFamilyMembers();
+  }
 
-        final data = jsonDecode(response.body);
+  Future<void> getAllFamilyMembers() async {
+    state = FamilyMembersLoading();
+    try {
+      final response = await http.get(
+        Uri.parse('$baseUrl/getallUsers'),
+        headers: {'Content-Type': 'application/json'},
+      );
 
-        if (data.isNotEmpty) {
-          List<User> users = [];
-          for (var user in data) {
-            users.add(User(
-              userId: user['id'],
-              email: user['email'],
-              role: user['role'],
-            ));
-          }
-          emit(FamilyMembersLoaded(familyMembers: users));
-        } else {
-          emit(FamilyMembersError(error: 'Failed to get users'));
+      final data = jsonDecode(response.body);
+
+      if (data.isNotEmpty) {
+        List<User> users = [];
+        for (var user in data) {
+          users.add(User(
+            userId: user['id'],
+            email: user['email'],
+            role: user['role'],
+          ));
         }
-      } catch (e) {
-        emit(FamilyMembersError(error: e.toString()));
+        state = FamilyMembersLoaded(familyMembers: users);
+      } else {
+        state = FamilyMembersError(error: 'Failed to get users');
       }
-    });
+    } catch (e) {
+      state = FamilyMembersError(error: e.toString());
+    }
+  }
 
-    on<UpdateRole>((event, emit) async {
-      try {
-        final response = await http.patch(
-          Uri.parse('$baseUrl/updateRole'),
-          headers: {'Content-Type': 'application/json'},
-          body: jsonEncode({
-            'id': event.id,
-            'role': event.role,
-          }),
-        );
-        add(GetAllFamilyMembers());
-
-      } catch (e) {
-        emit(FamilyMembersError(error: e.toString()));
-      }
-    });
+  Future<void> updateRole(int id, String role) async {
+    try {
+      final response = await http.patch(
+        Uri.parse('$baseUrl/updateRole'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'id': id,
+          'role': role,
+        }),
+      );
+      getAllFamilyMembers();
+    } catch (e) {
+      state = FamilyMembersError(error: e.toString());
+    }
   }
 }
